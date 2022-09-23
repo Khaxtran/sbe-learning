@@ -26,6 +26,11 @@ export function AuthProvider({ children }) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
+    // User logout method
+    function logout() {
+        return auth.signOut
+    }
+
     // Setting the currentUser
     useEffect(() => {
         // setCurrentUser will be called whenever the createUserWithEmailAndPassword is called to set the currentUser
@@ -37,11 +42,12 @@ export function AuthProvider({ children }) {
         return unsubscribe // unsubscribe is used to unsubscribe the listener onAuthStateChanged once it done
     }, [])
 
-    // Intialise an object called value to store currentUser
+    // Intialise an object called "value" to store currentUser
     const value = {
         currentUser,
         signup,
-        login
+        login,
+        logout
     }
 
   return (
