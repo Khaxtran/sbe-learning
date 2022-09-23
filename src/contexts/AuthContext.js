@@ -16,15 +16,14 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true) // By default loading is true, but set to false once user is authenticated
 
-    // Intialise an object called value to store currentUser
-    const value = {
-        currentUser,
-        signup
-    }
-
     // Create new user method
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
+    }
+
+    // User login method
+    function login(email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
     }
 
     // Setting the currentUser
@@ -37,6 +36,13 @@ export function AuthProvider({ children }) {
 
         return unsubscribe // unsubscribe is used to unsubscribe the listener onAuthStateChanged once it done
     }, [])
+
+    // Intialise an object called value to store currentUser
+    const value = {
+        currentUser,
+        signup,
+        login
+    }
 
   return (
     <AuthContext.Provider value={value}>
