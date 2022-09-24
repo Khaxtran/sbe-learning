@@ -26,9 +26,14 @@ export function AuthProvider({ children }) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
+    // User reset password method
+    function resetPassword(email) {
+        return auth.sendPasswordResetEmail(email)
+    }
+
     // User logout method
     function logout() {
-        return auth.signOut
+        return auth.signOut()
     }
 
     // Setting the currentUser
@@ -47,6 +52,7 @@ export function AuthProvider({ children }) {
         currentUser,
         signup,
         login,
+        resetPassword,
         logout
     }
 

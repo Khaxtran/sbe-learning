@@ -11,11 +11,12 @@ export default function Dashboard() {
     const navigate = useNavigate()
 
     async function handleLogout() {
-        setError("") // Initially error messgae is empty
+        setError("") // Initially error message is empty
 
         // User presses "Log out", the method will:
         try {
             await logout()
+            console.log(currentUser.email)
             navigate("/login") // Go back to login page
 
         } catch {
