@@ -1,4 +1,5 @@
 import React from 'react'
+import HomePage from './HomePage'
 import Dashboard from './Dashboard'
 import Signup from './Signup'
 import Login from './Login'
@@ -20,8 +21,9 @@ function App() {
             <AuthProvider>
 
               <Routes>
+                <Route exact path="/" element={<HomePage/>} />
                 <Route element={<PrivateRoutes />}>
-                  <Route exact path="/" element={<Dashboard/>} />
+                  <Route path="dashboard" element={<Dashboard/>} />
                   <Route path="/update-profile" element={<UpdateProfile/>} />
                 </Route>
                 

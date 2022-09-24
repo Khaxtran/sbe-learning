@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { Form, Button, Card, Alert } from 'react-bootstrap' 
+import { Form, Button, Card, Alert, Container, Row, Col } from 'react-bootstrap' 
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
+import { FaArrowLeft } from 'react-icons/fa'
 
 // Card contains all Login informaiton
 
@@ -34,9 +35,24 @@ export default function Login() {
 
   return (
     <>
+        <h2 className="text-center mb-4">Hello Teachers!</h2>
         <Card>
             <Card.Body>
-                <h2 className="text-center mb-4">Log In</h2>
+
+                <Container>
+                    <Row>
+                        <Col>
+                            <Button variant="secondary">
+                                <Link style={{color: 'white', textDecoration: 'none'}} to="/"><FaArrowLeft /></Link>
+                            </Button>
+                        </Col>
+
+                        <Col><h2 className="m-1 text-center">Log In</h2></Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
+                
+                <Card.Subtitle className="m-2 text-muted text-center">Please log in to continue</Card.Subtitle>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group id="email" className="p-2">
