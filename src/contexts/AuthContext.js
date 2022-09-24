@@ -36,6 +36,16 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
+    // Update email method
+    function updateEmail(email) {
+        return currentUser.updateEmail(email)
+    }
+
+    // Update password method
+    function updatePassword(password) {
+        return currentUser.updatePassword(password)
+    }
+
     // Setting the currentUser
     useEffect(() => {
         // setCurrentUser will be called whenever the createUserWithEmailAndPassword is called to set the currentUser
@@ -53,7 +63,9 @@ export function AuthProvider({ children }) {
         signup,
         login,
         resetPassword,
-        logout
+        logout,
+        updateEmail,
+        updatePassword
     }
 
   return (
