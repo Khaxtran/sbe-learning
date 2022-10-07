@@ -14,7 +14,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="w-100 text-center mt-3">
-                        <Button><Link style={{color: 'white', textDecoration: 'none'}} to="/">Student</Link></Button>
+                        <Button><Link style={{color: 'white', textDecoration: 'none'}} to="/EnterGameCode">Student</Link></Button>
                     </div>
                 </Card.Body>
             </Card>
