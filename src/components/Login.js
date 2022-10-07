@@ -35,7 +35,7 @@ export default function Login() {
 
   return (
     <>
-        <h2 className="text-center mb-4">Hello Teachers!</h2>
+        <h2 className="text-center mb-4">Hello Teachers</h2>
         <Card>
             <Card.Body>
 
