@@ -25,7 +25,7 @@ export default function Login() {
             setLoading(true)
             // Call signup function and pass in email and password
             await login(emailRef.current.value, passwordRef.current.value)
-            navigate("/") // Go back to Dashboard after user logged in
+            navigate("/dashboard") // Go back to Dashboard after user logged in
         } catch {
             setError("Failed to sign in")
         }
