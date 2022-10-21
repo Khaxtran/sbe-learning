@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar/Navbar";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,8 +34,9 @@ export default function Dashboard({ gamecode }) {
   }
 
   return (
-    <>
-      <Card>
+    <div>
+      <Navbar />
+      <Card className="m-5">
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -60,6 +62,6 @@ export default function Dashboard({ gamecode }) {
           <Button onClick={onGameLaunch}>Launch Game</Button>
         </Card.Body>
       </Card>
-    </>
+    </div>
   );
 }
