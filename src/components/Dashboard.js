@@ -35,13 +35,8 @@ export default function Dashboard({ gamecode }) {
 
   return (
     <div>
-      <div className="d-flex">
-        <Navbar />
-      </div>
-      
-    
-    
-      <Card>
+      <Navbar />
+      <Card className="m-5">
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -67,6 +62,6 @@ export default function Dashboard({ gamecode }) {
           <Button onClick={onGameLaunch}>Launch Game</Button>
         </Card.Body>
       </Card>
-      </div>
+    </div>
   );
 }
