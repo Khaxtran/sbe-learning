@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar/Navbar";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,7 +34,13 @@ export default function Dashboard({ gamecode }) {
   }
 
   return (
-    <>
+    <div>
+      <div className="d-flex">
+        <Navbar />
+      </div>
+      
+    
+    
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
@@ -60,6 +67,6 @@ export default function Dashboard({ gamecode }) {
           <Button onClick={onGameLaunch}>Launch Game</Button>
         </Card.Body>
       </Card>
-    </>
+      </div>
   );
 }
