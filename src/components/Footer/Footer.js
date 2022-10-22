@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className='footer-container'>
-      <div class='footer-links'>
+      <div className='footer-links'>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>About Us</h2>
             <Link to='/'>Board Members</Link>
             <Link to='/'>Terms of Service</Link>
@@ -19,14 +19,14 @@ function Footer() {
           </div>
         </div>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>Social Media</h2>
             <Link to='/'>LinkedIn</Link>
             <Link to='/'>Youtube</Link>
           </div>
         </div>
       </div>
-    <div class='website-rights'>© Stray Balloon 2022</div>
+    <div className='website-rights'>© Stray Balloon 2022</div>
     
  {/*      <section class='social-media'>
         <div class='social-media-wrap'>
