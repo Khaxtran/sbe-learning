@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { Alert } from 'react-bootstrap'
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../contexts/AuthContext"
 import './Navbar.css';
 
 function Navbar() {
 
   const [click, setClick] = useState(false); /* hamburger  */
   const [button, setButton] = useState(true);
+  const [error, setError] = useState("");
+  const navigate = useNavigate()
+  const { logout } = useAuth();
 
   const handleClick = () => setClick(!click); /* hamburger and x toggle */
   const closeMobileMenu = () => setClick(false);
@@ -20,6 +25,18 @@ function Navbar() {
       setButton(true);
     }
   };
+
+  async function handleLogout() {
+    setError(""); // Initially error message is empty
+
+    // User presses "Log out", the method will:
+    try {
+      await logout();
+      navigate("/login"); // Go back to login page
+    } catch {
+      setError("Failed to log out");
+    }
+  }
 
   //logout button does not move in the middle
   useEffect(() => { 
@@ -62,13 +79,14 @@ function Navbar() {
             </li>
 
             <li>
-              <Link to='/logout' className='nav-links-mobile' onClick={closeMobileMenu}>
+              <Link to='/logout' className='nav-links-mobile' onClick={handleLogout}>
                 Logout
               </Link>
             </li>
 
           </ul>
-          {button && <Button buttonStyle='btn--outline'>Logout</Button>}
+          {button && <Button buttonStyle='btn--outline' onClick={handleLogout}>Logout</Button>}
+          {error && <Alert variant="danger">{error}</Alert>}
 
      </div>
     </nav>
