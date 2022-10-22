@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar/Navbar";
+import HeroSection from "./HeroSection/HeroSection"
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -35,7 +36,8 @@ export default function Dashboard({ gamecode }) {
 
   return (
     <div>
-      <Navbar />
+      <Navbar style={{top: 0}}/>
+      <HeroSection />
       <Card className="m-5">
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
