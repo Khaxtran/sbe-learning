@@ -2,10 +2,11 @@ import React from "react";
 import HomePage from "./HomePage";
 import Dashboard from "./Dashboard";
 import GameLobby from "./GameLobby";
+import Account from "./Account/Account";
 import Signup from "./Signup";
 import Login from "./Login";
 import StudentAccess from "./StudentAccess";
-import UpdateProfile from "./UpdateProfile";
+import UpdateProfile from "./Account/UpdateProfile";
 import ForgotPassword from "./ForgotPassword";
 import PrivateRoutes from "./PrivateRoutes";
 import { AuthProvider } from "../contexts/AuthContext";
@@ -27,6 +28,7 @@ function App() {
                 path="dashboard"
                 element={<Dashboard gamecode={setGamecode} />}
               />
+              <Route path="/account" element={<Account />} />
               <Route path="/update-profile" element={<UpdateProfile />} />
               <Route
                 path="/game-lobby"
