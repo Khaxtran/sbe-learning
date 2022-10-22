@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar/Navbar";
 import HeroSection from "./HeroSection/HeroSection"
+import Footer from "./Footer/Footer"
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -64,6 +65,8 @@ export default function Dashboard({ gamecode }) {
           <Button onClick={onGameLaunch}>Launch Game</Button>
         </Card.Body>
       </Card>
+
+      <Footer />
     </div>
   );
 }
