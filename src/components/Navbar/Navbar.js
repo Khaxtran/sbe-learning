@@ -49,7 +49,7 @@ function Navbar() {
     <>
     <nav className='navbar'>
      <div className='navbar-container'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+        <Link to='/dashboard' className='navbar-logo' onClick={closeMobileMenu}>
             StrayBalloon 
             {/* No need for icon <i class='fab fa-typo3' /> */} 
         </Link>
@@ -61,7 +61,7 @@ function Navbar() {
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>  {/* when you click it, nav menu disappear  */}
             
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}> 
+              <Link to='/dashboard' className='nav-links' onClick={closeMobileMenu}> 
                 Home
               </Link>
             </li>
