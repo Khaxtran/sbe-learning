@@ -9,22 +9,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard({ gamecode }) {
   // Initialisers
-  const [error, setError] = useState("");
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const navigate = useNavigate();
 
-  async function handleLogout() {
-    setError(""); // Initially error message is empty
-
-    // User presses "Log out", the method will:
-    try {
-      await logout();
-      console.log(currentUser.email);
-      navigate("/login"); // Go back to login page
-    } catch {
-      setError("Failed to log out");
-    }
-  }
 
   function onGameLaunch() {
     generatePin();
@@ -44,7 +31,6 @@ export default function Dashboard({ gamecode }) {
       <Card className="m-5">
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
           <strong>Email:</strong> {currentUser.email}
           <div className="text-center">
             <Link to="/update-profile" className="btn btn-primary w-100 mt-4">
@@ -52,12 +38,6 @@ export default function Dashboard({ gamecode }) {
             </Link>
           </div>
         </Card.Body>
-
-        <div className="2-100 text-center">
-          <Button variant="link" onClick={handleLogout}>
-            Log out
-          </Button>
-        </div>
       </Card>
 
       <Card className="text-center m-5">
