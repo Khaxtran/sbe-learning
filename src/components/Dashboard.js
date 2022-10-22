@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar/Navbar";
 import HeroSection from "./HeroSection/HeroSection"
+import GameCards from "./GameCards/GameCards"
 import Footer from "./Footer/Footer"
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
@@ -39,6 +40,7 @@ export default function Dashboard({ gamecode }) {
     <div>
       <Navbar style={{top: 0}}/>
       <HeroSection />
+      <GameCards />
       <Card className="m-5">
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
