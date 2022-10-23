@@ -27,6 +27,7 @@ export default function Login() {
   async function handleSubmit(event) {
     event.preventDefault(); // Prevent the form from refreshing
 
+
     try {
       setError(""); // Set to empty string as there is no error yet
       setLoading(true);

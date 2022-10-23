@@ -30,7 +30,7 @@ export default function Signup() {
             setLoading(true)
             // Call signup function and pass in email and password
             await signup(emailRef.current.value, passwordRef.current.value)
-            navigate("/") // Go back to Dashboard after user logged in
+            navigate("/dashboard") // Go back to Dashboard after user logged in
         } catch {
             setError("Failed to create your account")
         }
