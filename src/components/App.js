@@ -15,7 +15,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // react-router-dom
 
 function App() {
-  const [gamecode, setGamecode] = useLocalStorage("pin");
+  const [gamecode, setGamecode] = useLocalStorage("pin", 0);
   return (
     <Router>
       <AuthProvider>
