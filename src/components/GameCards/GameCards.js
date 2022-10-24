@@ -30,74 +30,63 @@ function GameCards() {
     <div className="cards">
       <h1>Select Games</h1>
 
-      <Container
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "row",
-          width: "100%",
-          justifyContents: "center",
-          alignItems: "center",
-        }}
-      >
-        {games &&
-          games.map((game) => (
-            <div key={game.id}>
-              <Card
-                className="m-2 shadow p-3 mb-5 bg-white rounded"
-                style={{
-                  height: "30rem",
-                  width: "20rem",
-                  border: "none",
-                }}
-              >
-                <Card.Img
-                  key={game.id}
-                  className="p-5"
-                  variant="top"
-                  src={game.img}
-                  name={game.title}
-                  alt={game.description}
-                  onClick={handleClick}
-                />
-                <Card.Body>
-                  <Card.Title>{game.title}</Card.Title>
-                  <Card.Text>
-                    <b>Age range:</b> {game.ageRange}
-                  </Card.Text>
+      <Container className="cards__container">
+        <div className="cards__wrapper">
+          <ul className="cards__items">
+            {games &&
+              games.map((game) => (
+                <li key={game.id} className='cards__item'>
+                  <Card className='cards__item__link' style={{border: "none"}}>
+                    <Card.Img
+                      key={game.id}
+                      className='cards__item__img p-5' style={{cursor: "pointer"}}
+                      variant="top"
+                      src={game.img}
+                      name={game.title}
+                      alt={game.description}
+                      onClick={handleClick}
+                    />
+                    <Card.Body>
+                      <Card.Title>{game.title}</Card.Title>
+                      <Card.Text>
+                        <b>Age range:</b> {game.ageRange}
+                      </Card.Text>
 
-                  <Card.Text>
-                    <b>Accquired skills:</b>
-                    {game.skills.map((skill) => (
-                      <div
-                        style={{
-                          margin: "3px",
-                          width: "auto",
-                          display: "inline-flex",
-                          flexWrap: "wrap",
-                          borderRadius: "20px",
-                          backgroundColor: "rgba(192,192,192,0.3)",
-                        }}
-                      >
-                        <span
-                          style={{
-                            margin: "auto",
-                            padding: "12px",
-                            width: "auto",
-                            fontSize: "12px",
-                            lineHeight: "0.1",
-                            textAlign: "justify",
-                          }}
-                        >
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+                      <Card.Text>
+                        <b>Accquired skills:</b>
+                        {game.skills.map((skill) => (
+                          <div
+                            style={{
+                              margin: "3px",
+                              width: "auto",
+                              display: "inline-flex",
+                              flexWrap: "wrap",
+                              borderRadius: "20px",
+                              backgroundColor: "rgba(192,192,192,0.3)",
+                            }}
+                          >
+                            <span
+                              style={{
+                                margin: "auto",
+                                padding: "12px",
+                                width: "auto",
+                                fontSize: "12px",
+                                lineHeight: "0.1",
+                                textAlign: "justify",
+                              }}
+                            >
+                              {skill}
+                            </span>
+                          </div>
+                        ))}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </li>
+              ))}
+          </ul>
+        </div>
+
         <GameModal
           key={game.id}
           title={game.title}
