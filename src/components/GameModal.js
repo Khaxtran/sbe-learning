@@ -30,7 +30,7 @@ export default function GameModal(props) {
         <Button variant="secondary" onClick={props.onHide}>
           Close
         </Button>
-        <Button>Launch Game</Button>
+        <Button>Generate Code</Button>
       </Modal.Footer>
     </Modal>
   );
