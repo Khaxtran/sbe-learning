@@ -18,8 +18,8 @@ export default function GameModal(props) {
         <div className="text-center">
           <Image
             thumbnail="true"
-            style={{ width: "70%", border: "none" }}
-            src="images/teacher-explaining-while-sitting-on-armchair.png"
+            style={{ width: "50%", border: "none" }}
+            src={props.thumbnail}
             alt="game-thumbnail"
           />
         </div>

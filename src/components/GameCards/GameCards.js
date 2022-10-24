@@ -16,13 +16,13 @@ function GameCards() {
 
   const handleClick = (e) => {
     setModalShow(true);
-    const { key, name, alt } = e.target;
+    const { key, name, alt, src } = e.target;
 
     setGame({
       id: key,
       title: name,
       description: alt,
-      thumbnail: alt,
+      thumbnail: src,
     });
   };
 
@@ -58,7 +58,6 @@ function GameCards() {
                   src={game.img}
                   name={game.title}
                   alt={game.description}
-                  longdesc={game.thumbnail}
                   onClick={handleClick}
                 />
                 <Card.Body>
