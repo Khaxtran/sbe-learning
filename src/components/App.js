@@ -17,7 +17,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // re
 import GameModal from "./GameModal"
 
 function App() {
-  const [gamecode, setGamecode] = useLocalStorage("pin", 1234);
+
   return (
     <Router>
       <AuthProvider>
@@ -31,16 +31,16 @@ function App() {
               />
               <Route path="/account" element={<Account />} />
               <Route path="/update-profile" element={<UpdateProfile />} />
-              <Route path="/nothing" element={<GameModal setPin={setGamecode}/>} />
-              <Route path="/games/host" element={<HostScreen pin={gamecode}/>}/>
+              <Route path="/nothing" element={<GameModal />} />
+              <Route path="/games/host" element={<HostScreen />}/>
               <Route
                 path="/game-lobby"
-                element={<GameLobby gamecode={gamecode} />}
+                element={<GameLobby />}
               />
             </Route>
             <Route
               path="/student"
-              element={<StudentAccess gamecode={gamecode} />}
+              element={<StudentAccess />}
             />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />

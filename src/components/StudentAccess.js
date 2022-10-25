@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Form,
   Button,
@@ -8,35 +8,43 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import io from "socket.io-client";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import { usePlayers } from "../contexts/PlayersProvider";
 import StudentAccessAnimation from "../lotties/StudentAnimation/StudentAccessAnimation";
-import JoinGameAnimation from "../lotties/JoinGameAnimation/JoinGameAnimation"
+import JoinGameAnimation from "../lotties/JoinGameAnimation/JoinGameAnimation";
 
-export default function StudentAccess({ gamecode }) {
+export default function StudentAccess() {
   // Initialisers
   const gamecodeRef = useRef();
   const nameRef = useRef();
   const [isPlayerAdded, setIsPlayerAdded] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // Set to false by default since there is nothing to load
-  const { addPlayer } = usePlayers();
   const navigate = useNavigate(); // To go to lobby after enter the correct game code
-  let pin = gamecode.toString();
+  const socket = io.connect("http://localhost:3001");
+
+  const joinGame = () => {
+    socket.emit(
+      "add-player",
+      nameRef.current.value,
+      socket.id,
+      gamecodeRef.current.value,
+      (message) => {
+        if (message === "correct game code") {
+          setIsPlayerAdded(true);
+          setError(""); // Set to empty string as there is no error yet
+          setLoading(false);
+        } else {
+          setError("Game code does not match! Please check your game code");
+        }
+      }
+    );
+  };
 
   function handleSubmit(event) {
     event.preventDefault(); // Prevent the form from refreshing
-
-    // Check if game code match
-    if (gamecodeRef.current.value !== pin) {
-      return setError("Game code does not match! Please check your game code");
-    }
-    addPlayer(nameRef);
-    setIsPlayerAdded(true);
-    setError(""); // Set to empty string as there is no error yet
-    setLoading(true);
-    setLoading(false);
+    joinGame();
   }
 
   return (
@@ -125,7 +133,6 @@ export default function StudentAccess({ gamecode }) {
           style={{ minHeight: "100vh", zIndex: "1" }}
         >
           <div className="text-center">
-            <h2>You joined the game</h2>
             <h4>Waiting for teacher to start the game</h4>
             <JoinGameAnimation />
           </div>

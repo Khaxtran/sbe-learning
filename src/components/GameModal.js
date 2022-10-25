@@ -1,13 +1,18 @@
 import React from "react";
+import io from "socket.io-client"; 
 import { Modal, Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"
 
-export default function GameModal(props, setPin) {
+export const newGame = {
+  pin: String(Math.floor(Math.random() * 9000) + 1000),
+}
+
+export default function GameModal(props) {
+  const socket = io.connect("http://localhost:3001")
   const navigate = useNavigate()
 
-  function handleGameLaunch() {
-    let newPin = String(Math.floor(Math.random() * 9000) + 1000)
-    setPin = newPin
+  function handleGameLaunch() {  
+    socket.emit("init-game", newGame)
     navigate("/games/host")
   }
 
