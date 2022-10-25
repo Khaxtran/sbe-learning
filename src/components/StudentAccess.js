@@ -36,7 +36,6 @@ export default function StudentAccess({ gamecode }) {
     setIsPlayerAdded(true);
     setError(""); // Set to empty string as there is no error yet
     setLoading(true);
-    navigate("/game-lobby"); // Go to game lobby after enter the correct game code
     setLoading(false);
   }
 

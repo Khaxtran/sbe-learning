@@ -17,7 +17,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // re
 import GameModal from "./GameModal"
 
 function App() {
-  const [gamecode, setGamecode] = useLocalStorage("pin", 0);
+  const [gamecode, setGamecode] = useLocalStorage("pin", 1234);
   return (
     <Router>
       <AuthProvider>
