@@ -4,7 +4,7 @@ import HeroSection from "./HeroSection/HeroSection"
 import GameCards from "./GameCards/GameCards"
 import Footer from "./Footer/Footer"
 
-export default function Dashboard({ gamecode }) {
+export default function Dashboard() {
   return (
     <>
       <Navbar />
