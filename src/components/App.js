@@ -14,7 +14,7 @@ import { AuthProvider } from "../contexts/AuthContext";
 import { PlayersProvider } from "../contexts/PlayersProvider";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // react-router-dom
-import GameModal from "./GameModal"
+import Addition from "../components/Games/Addition/Addition"
 
 function App() {
 
@@ -31,8 +31,8 @@ function App() {
               />
               <Route path="/account" element={<Account />} />
               <Route path="/update-profile" element={<UpdateProfile />} />
-              <Route path="/nothing" element={<GameModal />} />
               <Route path="/games/host" element={<HostScreen />}/>
+              <Route path="/games/addition" element={<Addition />}/>
               <Route
                 path="/game-lobby"
                 element={<GameLobby />}

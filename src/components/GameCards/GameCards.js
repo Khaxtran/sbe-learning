@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./GameCards.css";
 import GameModal from "../GameModal";
-import { games } from "../Games";
+import { games } from "../Games/Games";
 import { Container, Card } from "react-bootstrap";
 
 function GameCards() {
