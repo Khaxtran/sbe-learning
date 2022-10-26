@@ -85,7 +85,7 @@ function Navbar() {
             </li>
 
           </ul>
-          {button && <Button onClick={handleLogout}>Logout</Button>}
+          {button && <Button onClick={handleLogout} >Logout</Button>}
      </div>
      {error && <Alert variant="danger">{error}</Alert>}
     </nav>
