@@ -9,16 +9,6 @@ export default function Account() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
-  function onGameLaunch() {
-    generatePin();
-    navigate("/game-lobby");
-  }
-
-  function generatePin() {
-    let newPin = Math.floor(Math.random() * 9000, 10000);
-    //return gamecode(newPin);
-  }
-
   return (
     <div>
       <Navbar />
@@ -39,14 +29,6 @@ export default function Account() {
                   Update Profile
                 </Link>
               </div>
-            </Card.Body>
-          </Card>
-
-          <Card className="text-center m-5">
-            <Card.Body>
-              <h2>Math game</h2>
-              <p>This is math game for primary student</p>
-              <Button onClick={onGameLaunch}>Launch Game</Button>
             </Card.Body>
           </Card>
         </div>
