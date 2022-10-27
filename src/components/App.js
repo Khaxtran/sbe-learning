@@ -2,7 +2,6 @@ import React from "react";
 import HomePage from "./HomePage";
 import Dashboard from "./Dashboard";
 import HostScreen from "./HostScreen";
-import GameLobby from "./GameLobby";
 import Account from "./Account/Account";
 import Signup from "./Signup";
 import Login from "./Login";
@@ -11,9 +10,8 @@ import UpdateProfile from "./Account/UpdateProfile";
 import ForgotPassword from "./ForgotPassword";
 import PrivateRoutes from "./PrivateRoutes";
 import { AuthProvider } from "../contexts/AuthContext";
-import { PlayersProvider } from "../contexts/PlayersProvider";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // react-router-dom
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import Addition from "../components/Games/Addition/Addition"
 
 function App() {
@@ -21,7 +19,6 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <PlayersProvider>
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route element={<PrivateRoutes />}>
@@ -33,10 +30,6 @@ function App() {
               <Route path="/update-profile" element={<UpdateProfile />} />
               <Route path="/games/host" element={<HostScreen />}/>
               <Route path="/games/addition" element={<Addition />}/>
-              <Route
-                path="/game-lobby"
-                element={<GameLobby />}
-              />
             </Route>
             <Route
               path="/student"
@@ -46,7 +39,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
-        </PlayersProvider>
       </AuthProvider>
     </Router>
   );

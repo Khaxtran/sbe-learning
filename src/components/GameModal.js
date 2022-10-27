@@ -11,7 +11,7 @@ export default function GameModal(props) {
   const socket = io.connect("http://localhost:3001")
   const navigate = useNavigate()
 
-  function handleGameLaunch() {  
+  function handleGameLaunch() { 
     socket.emit("init-game", newGame)
     navigate("/games/host")
   }
