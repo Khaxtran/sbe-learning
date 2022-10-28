@@ -135,6 +135,9 @@ export default function StudentAccess() {
           <div className="text-center">
             <h4>Waiting for teacher to start the game</h4>
             <JoinGameAnimation />
+            <p>
+            <a href="https://liveswinburneeduau-my.sharepoint.com/:b:/g/personal/104070117_student_swin_edu_au/Ea4tnOEiXLhAlHhIS_cqTogBufdnxOjhXBLT7NZO1AlSZg?e=vT4LGE" target="_blank" >Gameplay instructions</a>
+            </p>
           </div>
         </Container>
       )}
